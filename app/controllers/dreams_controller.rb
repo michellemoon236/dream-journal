@@ -60,4 +60,9 @@ class DreamsController < ApplicationController
     end
   end
   
+  delete '/dreams/:id' do
+    @dream = Dream.find_by_id(params[:id])
+    @dream.delete
+    redirect '/dreams'
+  end
 end
