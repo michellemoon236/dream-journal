@@ -9,5 +9,23 @@ class DreamsController < ApplicationController
     end
   end
   
+  get '/dreams/new' do
+    if logged_in?
+      erb :'dreams/new'
+    else 
+      redirect '/login'
+    end
+  end
+  
+  post '/dreams' do
+    if params[:content] == ""
+      redirect '/dreams/new'
+    else
+      dream = current_user.dreams.create(params["dream"])
+      dream.categories << Category.create(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
+      dream.categories << Category.create(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
+      redirect to "/dreams"
+    end
+  end
   
 end
