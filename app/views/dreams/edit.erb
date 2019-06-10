@@ -1,0 +1,27 @@
+<h2>Edit Dream</h2>
+<form method="post" action="/dreams/<%= @dream.id %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <label>Title:</label>
+  <input type="text" id="dream_name" name="dream[title]" value="<%= @dream.title %>"><br><br>
+  <label>Date:</label>
+  <input type="text" id="dream_date" name="dream[date]" value="<%= @dream.date %>"><br><br>
+  <label>Content:</label><br>
+  <textarea rows="10" cols="80" id="content" name="dream[content]"><%= @dream.content %></textarea><br><br>  
+  
+  <h4>Category Tags (optional)</h4>
+  <label>Tag your dream entry with new category tag(s):</label><br><br>
+  <label>Category:</label>
+  <input type="text" name="category[name1]" id="category_name1"></input><br><br>
+  
+  <label>Category:</label>
+  <input type="text" name="category[name2]" id="category_name2"></input><br><br>
+  
+  <% if !@dream.categories.empty? %>
+    <label>Or apply existing category tag(s):</label><br>
+    <%@dream.categories.each do |category|%>
+      <input type="checkbox" name="dream[category_ids][]" id="<%=category.id%>" value="<%=category.id%>" <%='checked' if @dream.categories.include?(category) %>><%=category.name%></input>
+    <% end %><br>
+  <% end %><br>
+  
+  <input type="submit" value="Submit">
+</form>

@@ -39,4 +39,17 @@ class DreamsController < ApplicationController
     end
   end
   
+  get '/dreams/:id/edit' do
+    if logged_in?
+      @dream = Dream.find_by_id(params[:id]) 
+      erb :'dreams/edit'
+    else
+      redirect '/login'
+    end
+  end
+  
+  patch '/dreams/:id' do
+    
+  end
+  
 end
