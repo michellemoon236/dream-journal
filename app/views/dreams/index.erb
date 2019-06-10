@@ -2,6 +2,6 @@
 
 <ul>
 <%@dreams.each do |dream|%>
-<li><%=dream.title%></li>
+<li><a href="/dreams/<%=dream.id%>"><%=dream.title%></a></li>
 <%end%>
 </ul>
