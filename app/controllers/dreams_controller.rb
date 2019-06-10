@@ -49,7 +49,15 @@ class DreamsController < ApplicationController
   end
   
   patch '/dreams/:id' do
-    
+    @dream = Dream.find_by_id(params[:id])    
+    if params[:content] == "" || params[:title] == ""
+      redirect "/dreams/#{@dream.id}/edit"
+    else
+      @dream.update(params["dream"])
+      @dream.categories << Category.create(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
+      @dream.categories << Category.create(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
+      redirect "/dreams/#{@dream.id}"
+    end
   end
   
 end
