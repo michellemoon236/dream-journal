@@ -1,0 +1,18 @@
+<h2><%= @dream.title %></h2>
+<p><%= @dream.date %></p>
+<p><%= @dream.content %></p><br>
+<% if !@dream.categories.empty? %>
+  <h4>Categories:</h4>
+  <ul>
+    <% @dream.categories.uniq.each do |category| %>
+    <li><%= category.name %></li>
+  </ul>
+  <% end %>
+<% end%><br><br>
+
+<p><a href="/dreams/<%=@dream.id%>/edit">Edit Dream</a></p>
+
+<form method="post" action="/dreams/<%= @dream.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" id="submit" value="Delete Dream"><br>
+</form>
