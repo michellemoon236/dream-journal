@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
   
   post '/signup' do
-    if params[:username] == "" || params[:email] =="" || params[:password] ==""
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect "/signup"
     else 
       @user = User.create(username: params[:username], email: params[:email], password: params[:password])
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
   
   get '/welcome' do 
-    erb :welcome
+    erb :'users/welcome'
   end
   
   get '/logout' do
