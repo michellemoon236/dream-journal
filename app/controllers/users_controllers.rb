@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end 
   
   get '/welcome' do 
-    
+    erb :welcome
   end
   
 end
