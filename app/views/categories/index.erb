@@ -1,0 +1,8 @@
+<h2>Categories List</h2>
+<p>Click the category name to see all dreams in that category</p><br>
+
+<ul>
+<%@categories.each do |category|%>
+  <li><%= category.name%></li>
+<%end%>
+</ul>
