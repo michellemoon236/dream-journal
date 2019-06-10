@@ -1,0 +1,26 @@
+<h2>New Dream</h2>
+<form method="post" action="/dreams">
+  <label>Title:</label>
+  <input type="text" id="dream_name" name="dream[name]"><br><br>
+  <label>Date:</label>
+  <input type="text" id="dream_date" name="dream[date]"><br><br>
+  <label>Content:</label><br>
+  <textarea rows="10" cols="80" id="content" name="dream[content]"></textarea><br><br>  
+  
+  <h4>Category Tags (optional)</h4>
+  <label>Tag your dream entry with new category tag(s):</label><br><br>
+  <label>Category:</label>
+  <input type="text" name="category[name1]" id="category_name1"></input><br><br>
+  
+  <label>Category:</label>
+  <input type="text" name="category[name2]" id="category_name2"></input><br><br>
+  
+  <% if !@categories.empty? %>
+    <label>Or apply existing category tag(s):</label><br>
+    <%@categories.each do |category|%>
+      <input type="checkbox" name="dream[category_ids][]" id="<%=category.id%>" value="<%=category.id%>"><%=category.name%></input>
+    <% end %><br>
+  <% end %>
+  
+  <input type="submit" value="Submit">
+</form>

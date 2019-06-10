@@ -3,7 +3,7 @@ class DreamsController < ApplicationController
   get '/dreams' do
     if logged_in?
       @dreams = current_user.dreams
-      erb: 'dreams/index'
+      erb :'dreams/index'
     else
       redirect '/login'
     end
@@ -11,6 +11,8 @@ class DreamsController < ApplicationController
   
   get '/dreams/new' do
     if logged_in?
+      @categories = current_user.categories
+      #binding.pry
       erb :'dreams/new'
     else 
       redirect '/login'
@@ -24,7 +26,7 @@ class DreamsController < ApplicationController
       dream = current_user.dreams.create(params["dream"])
       dream.categories << Category.create(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
       dream.categories << Category.create(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
-      redirect to "/dreams"
+      redirect '/dreams'
     end
   end
   
