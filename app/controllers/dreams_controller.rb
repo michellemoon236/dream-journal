@@ -11,7 +11,7 @@ class DreamsController < ApplicationController
   
   get '/dreams/new' do
     if logged_in?
-      @categories = current_user.categories
+      @categories = current_user.categories.uniq
       #binding.pry
       erb :'dreams/new'
     else 
@@ -20,7 +20,7 @@ class DreamsController < ApplicationController
   end
   
   post '/dreams' do
-    if params[:content] == ""
+    if params[:content] == "" || params[:title] == ""
       redirect '/dreams/new'
     else
       dream = current_user.dreams.create(params["dream"])

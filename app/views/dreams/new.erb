@@ -1,7 +1,7 @@
 <h2>New Dream</h2>
 <form method="post" action="/dreams">
   <label>Title:</label>
-  <input type="text" id="dream_name" name="dream[name]"><br><br>
+  <input type="text" id="dream_name" name="dream[title]"><br><br>
   <label>Date:</label>
   <input type="text" id="dream_date" name="dream[date]"><br><br>
   <label>Content:</label><br>
@@ -20,7 +20,7 @@
     <%@categories.each do |category|%>
       <input type="checkbox" name="dream[category_ids][]" id="<%=category.id%>" value="<%=category.id%>"><%=category.name%></input>
     <% end %><br>
-  <% end %>
+  <% end %><br>
   
   <input type="submit" value="Submit">
 </form>
