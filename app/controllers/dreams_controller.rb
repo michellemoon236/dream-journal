@@ -24,8 +24,8 @@ class DreamsController < ApplicationController
       redirect '/dreams/new'
     else
       dream = current_user.dreams.create(params["dream"])
-      dream.categories << Category.create(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
-      dream.categories << Category.create(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
+      dream.categories << Category.find_or_create_by(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
+      dream.categories << Category.find_or_create_by(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
       redirect '/dreams'
     end
   end
@@ -55,8 +55,8 @@ class DreamsController < ApplicationController
       redirect "/dreams/#{@dream.id}/edit"
     else
       @dream.update(params["dream"])
-      @dream.categories << Category.create(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
-      @dream.categories << Category.create(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
+      @dream.categories << Category.find_or_create_by(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
+      @dream.categories << Category.find_or_create_by(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
       redirect "/dreams/#{@dream.id}"
     end
   end
