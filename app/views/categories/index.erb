@@ -1,11 +1,11 @@
 <h2>Categories List</h2>
-<p>Click the category name to see all dreams in that category</p>
+<p>Select the category name to see all dreams in that category</p>
 
 <ul>
 <%@categories.each do |category|%>
   <li><a href="/categories/<%=category.id%>"><%= category.name%></a></li>
 <%end%>
-</ul><br>
+</ul><br><br>
 
 <a href="/welcome">Home</a>       
 <a href="/logout">Log out</a>
