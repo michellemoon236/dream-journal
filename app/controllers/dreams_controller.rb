@@ -41,7 +41,8 @@ class DreamsController < ApplicationController
   
   get '/dreams/:id/edit' do
     if logged_in?
-      @dream = Dream.find_by_id(params[:id]) 
+      @dream = Dream.find_by_id(params[:id])
+      @categories = current_user.categories.uniq
       erb :'dreams/edit'
     else
       redirect '/login'

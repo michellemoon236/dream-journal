@@ -16,9 +16,9 @@
   <label>Category:</label>
   <input type="text" name="category[name2]" id="category_name2"></input><br><br>
   
-  <% if !@dream.categories.empty? %>
+  <% if !@categories.empty? %>
     <label>Or apply existing category tag(s):</label><br>
-    <%@dream.categories.each do |category|%>
+    <%@categories.each do |category|%>
       <input type="checkbox" name="dream[category_ids][]" id="<%=category.id%>" value="<%=category.id%>" <%='checked' if @dream.categories.include?(category) %>><%=category.name%></input>
     <% end %><br>
   <% end %><br>
