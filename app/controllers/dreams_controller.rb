@@ -12,7 +12,6 @@ class DreamsController < ApplicationController
   get '/dreams/new' do
     if logged_in?
       @categories = current_user.categories.uniq
-      #binding.pry
       erb :'dreams/new'
     else 
       redirect '/login'
@@ -23,7 +22,7 @@ class DreamsController < ApplicationController
     if params[:dream][:content] == "" || params[:dream][:title] == ""
       redirect '/dreams/new'
     else
-      dream = current_user.dreams.create(params["dream"])
+      dream = current_user.dreams.create(params[:dream])
       dream.categories << Category.find_or_create_by(name: params[:category][:name1]) if !params[:category][:name1].empty?
       dream.categories << Category.find_or_create_by(name: params[:category][:name2]) if !params[:category][:name2].empty?
       redirect '/dreams'
@@ -54,9 +53,9 @@ class DreamsController < ApplicationController
     if params[:dream][:content] == "" || params[:dream][:title] == ""
       redirect "/dreams/#{@dream.id}/edit"
     else
-      @dream.update(params["dream"])
-      @dream.categories << Category.find_or_create_by(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
-      @dream.categories << Category.find_or_create_by(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
+      @dream.update(params[:dream])
+      @dream.categories << Category.find_or_create_by(name: params[:category][:name1]) if !params[:category][:name1].empty?
+      @dream.categories << Category.find_or_create_by(name: params[:category][:name2]) if !params[:category][:name2].empty?
       redirect "/dreams/#{@dream.id}"
     end
   end
