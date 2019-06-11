@@ -8,14 +8,14 @@
     <li><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
   </ul>
   <% end %>
-<% end%><br><br>
+<% end%><br>
 
-<p><a href="/dreams/<%=@dream.id%>/edit">Edit Dream</a></p>
+<p></p><a href="/dreams/<%=@dream.id%>/edit">Edit Dream</a>
+<a href="/welcome">Home</a>       
+<a href="/logout">Log out</a></p>
 
 <form method="post" action="/dreams/<%= @dream.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" id="submit" value="Delete Dream"><br>
 </form><br>
 
-<a href="/welcome">Home</a>       
-<a href="/logout">Log out</a>
