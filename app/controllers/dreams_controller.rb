@@ -20,12 +20,12 @@ class DreamsController < ApplicationController
   end
   
   post '/dreams' do
-    if params[:content] == "" || params[:title] == ""
+    if params[:dream][:content] == "" || params[:dream][:title] == ""
       redirect '/dreams/new'
     else
       dream = current_user.dreams.create(params["dream"])
-      dream.categories << Category.find_or_create_by(name: params["category"]["name1"]) if !params["category"]["name1"].empty?
-      dream.categories << Category.find_or_create_by(name: params["category"]["name2"]) if !params["category"]["name2"].empty?
+      dream.categories << Category.find_or_create_by(name: params[:category][:name1]) if !params[:category][:name1].empty?
+      dream.categories << Category.find_or_create_by(name: params[:category][:name2]) if !params[:category][:name2].empty?
       redirect '/dreams'
     end
   end
@@ -51,7 +51,7 @@ class DreamsController < ApplicationController
   
   patch '/dreams/:id' do
     @dream = Dream.find_by_id(params[:id])    
-    if params[:content] == "" || params[:title] == ""
+    if params[:dream][:content] == "" || params[:dream][:title] == ""
       redirect "/dreams/#{@dream.id}/edit"
     else
       @dream.update(params["dream"])
