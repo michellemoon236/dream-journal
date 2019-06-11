@@ -2,7 +2,7 @@
 
 <ul>
 <%@dreams.each do |dream|%>
-<li><a href="/dreams/<%=dream.id%>"><%=dream.title%></a></li>
+<li><a href="/dreams/<%=dream.id%>"><%=dream.title%></a> - <%= dream.date %></li>
 <%end%>
 </ul><br>
 

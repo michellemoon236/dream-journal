@@ -2,10 +2,10 @@
 <p><%= @dream.date %></p>
 <p><%= @dream.content %></p><br>
 <% if !@dream.categories.empty? %>
-  <h4>Categories:</h4>
+  <h4>Categories: </h4>
   <ul>
     <% @dream.categories.uniq.each do |category| %>
-    <li><%= category.name %></li>
+    <li><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
   </ul>
   <% end %>
 <% end%><br><br>
