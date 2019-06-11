@@ -11,7 +11,9 @@ class CategoriesController < ApplicationController
 
   get '/categories/:id' do
     if logged_in?
+      #binding.pry
       @category = Category.find_by_id(params[:id])
+      @dreams = @category.dreams.select { |dream| dream.user_id == current_user.id }
       erb :'categories/show'
     else
       redirect '/login'
