@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
 
   get '/categories' do
     if logged_in?
+      #binding.pry
       @categories = current_user.categories.uniq
       erb :'categories/index'
     else
@@ -11,7 +12,6 @@ class CategoriesController < ApplicationController
 
   get '/categories/:id' do
     if logged_in?
-      #binding.pry
       @category = Category.find_by_id(params[:id])
       @dreams = @category.dreams.select { |dream| dream.user_id == current_user.id }
       erb :'categories/show'
