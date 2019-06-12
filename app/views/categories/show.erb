@@ -3,7 +3,7 @@
 <h4>Dreams:</h4>
 <l>
   <% @dreams.each do |dream| %>
-    <li><a href="/dreams/<%=dream.id%>"><%= dream.title %></a></li>
+    <li><a href="/dreams/<%=dream.id%>"><%=dream.title%></a> - <%= dream.date %></li>
   <% end %>
 </ul><br><br>
 
