@@ -6,5 +6,9 @@
 <%end%>
 </ul><br>
 
+<% if @dreams.empty? %>
+  <p>You currently do not have any dream entries.</p>
+<%end%><br>
+
 <a href="/welcome">Home</a>       
 <a href="/logout">Log out</a>
