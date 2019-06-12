@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
 
   get '/categories' do
     if logged_in?
-      #binding.pry
       @categories = current_user.categories.uniq
       erb :'categories/index'
     else
