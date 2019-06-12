@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Heebo&display=swap');
+
 @media screen {
   /* --- Reset Styles --- */
   * {
@@ -15,7 +20,9 @@
   body {
     background-color: #8591ad;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: 'Hind Siliguri', sans-serif;
+    /*font-family: 'Heebo', sans-serif;*/
+    /*font-family: 'Questrial', sans-serif;*/
     line-height: 18px;
   }
 
@@ -28,6 +35,10 @@
     max-width: 960px;
     padding: 3%; /* 18px / 800px */
     width: 80%;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Arvo', serif; 
   }
 
   h1 {
