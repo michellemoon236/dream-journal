@@ -1,11 +1,17 @@
 <h2>Categories List</h2>
-<p>Select the category name to see all dreams in that category</p>
+<% if !@categories.empty? %>
+  <p>Select the category name to see all dreams in that category:</p>
+<%end%>
 
 <ul>
 <%@categories.each do |category|%>
   <li><a href="/categories/<%=category.id%>"><%= category.name%></a></li>
 <%end%>
-</ul><br><br>
+</ul><br>
+
+<% if @categories.empty? %>
+  <p>You currently do not have any categories.</p>
+<%end%><br>
 
 <a href="/welcome">Home</a>       
 <a href="/logout">Log out</a>
