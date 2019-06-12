@@ -1,9 +1,9 @@
-<h2>Categories List</h2>
+<h2>Category List</h2>
 <% if !@categories.empty? %>
   <p>Select the category name to see all dreams in that category:</p>
 <%end%>
 
-<ul>
+<ul class="spacing">
 <%@categories.each do |category|%>
   <li><a href="/categories/<%=category.id%>"><%= category.name%></a></li>
 <%end%>

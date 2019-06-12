@@ -107,6 +107,10 @@
     max-width: 500px;
     height: auto;
   }
+  
+  .spacing {
+    line-height: 22px;
+  }
 
 }
 

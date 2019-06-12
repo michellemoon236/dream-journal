@@ -1,7 +1,7 @@
 <h2>Category: <%= @category.name %></h2>
 
 <h4>Dreams:</h4>
-<l>
+<ul class="spacing">
   <% @dreams.each do |dream| %>
     <li><a href="/dreams/<%=dream.id%>"><%=dream.title%></a> - <%= dream.date %></li>
   <% end %>
