@@ -37,7 +37,7 @@
     width: 80%;
   }
 
-  h1, h2, h3, h4 {
+  h1, h2, h3 {
     font-family: 'Arvo', serif; 
   }
 
@@ -54,8 +54,10 @@
   }
 
   h3 {
+    border-bottom: 2px solid #ccc;
     font-size: 18px;
     line-height: 36px;
+    margin-bottom: 16px;
   }
 
   p {
@@ -94,7 +96,6 @@
   }
   
   small {
-    font-family: Sans-Serif;
     font-size: 12px;
     }
 }
