@@ -1,14 +1,13 @@
 <h2>Dream List</h2>
-
 <ul class = "spacing">
-<%@dreams.each do |dream|%>
-<li><a href="/dreams/<%=dream.id%>"><%=dream.title%></a> - <%= dream.date %></li>
-<%end%>
+  <% @dreams.each do |dream| %>
+    <li><a href="/dreams/<%= dream.id %>"><%= dream.title %></a> - <%= dream.date %></li>
+  <% end %>
 </ul><br>
 
 <% if @dreams.empty? %>
   <p>You currently do not have any dream entries.</p>
-<%end%><br>
+<% end %><br>
 
 <a href="/dreams/new">Add New Dream</a>
 <a href="/welcome">Home</a>       

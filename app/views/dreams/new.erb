@@ -17,8 +17,8 @@
   
   <% if !@categories.empty? %>
     <label>Or apply existing category tag(s):</label><br>
-    <%@categories.each do |category|%>
-      <input type="checkbox" name="dream[category_ids][]" id="<%=category.id%>" value="<%=category.id%>"><%=category.name%></input>
+    <% @categories.each do |category| %>
+      <input type="checkbox" name="dream[category_ids][]" id="<%= category.id %>" value="<%= category.id %>"><%= category.name %></input>
     <% end %><br>
   <% end %><br>
   
