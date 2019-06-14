@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
   get '/categories' do
     if logged_in?
-      @categories = current_user.categories.uniq
+      @categories = current_user.categories.uniq.sort_by { |category| category.name }
       erb :'categories/index'
     else
       redirect '/login'
