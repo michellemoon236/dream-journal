@@ -1,5 +1,5 @@
 require './config/environment'
-required 'rack-flash'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
 

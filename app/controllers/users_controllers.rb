@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:message] = "*All fields required*"
       redirect "/signup"
     else 
       @user = User.create(username: params[:username], email: params[:email], password: params[:password])
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/home'
     else
+      flash[:message] = "*All fields required*"
       redirect '/login'
     end
   end
