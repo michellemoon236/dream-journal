@@ -111,6 +111,11 @@
   .spacing {
     line-height: 22px;
   }
+  
+  .flash {
+    font-weight: bold;
+    color: #3d5489;
+  }
 
 }
 
