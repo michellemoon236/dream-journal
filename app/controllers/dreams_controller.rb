@@ -20,6 +20,7 @@ class DreamsController < ApplicationController
   
   post '/dreams' do
     if params[:dream][:content] == "" || params[:dream][:title] == ""
+      flash[:message] = "*Title and content fields required for a new dream entry*"
       redirect '/dreams/new'
     else
       dream = current_user.dreams.create(params[:dream])

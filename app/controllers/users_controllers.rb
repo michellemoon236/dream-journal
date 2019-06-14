@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/home'
     else
-      flash[:message] = "*All fields required*"
+      flash[:message] = "*Valid email and password required*"
       redirect '/login'
     end
   end
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.clear
+      flash[:message] = "*You have been logged out*"
       redirect '/'
     else
       redirect '/home'
