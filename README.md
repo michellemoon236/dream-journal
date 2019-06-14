@@ -1,6 +1,6 @@
 # Dream Journal Sinatra Project
 
-This website built using Sinatra is a journal application for users to keep track of and write about their night dreams and sort them by categories. 
+This Sinatra based website is a journal application for users to record their night dreams and tag them by categories. This application enables users to keep track of all past dreams and view them by categories.
 
 ## Installation
 
@@ -8,8 +8,8 @@ You can clone from the git repository by typing the following command in your te
 
     git clone git@github.com:michellemoon236/dream-journal.git
 
-To run, type the following:
-
+To run, execute the following in the terminal:
+    bundle install
     rackup config.ru
     
 ## Contributing
