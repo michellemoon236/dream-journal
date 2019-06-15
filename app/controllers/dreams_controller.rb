@@ -11,7 +11,7 @@ class DreamsController < ApplicationController
   
   get '/dreams/new' do
     if logged_in?
-      @categories = current_user.categories.uniq
+      @categories = current_user.categories.uniq.sort_by { |category| category.name }
       erb :'dreams/new'
     else 
       redirect '/login'
@@ -42,7 +42,7 @@ class DreamsController < ApplicationController
   get '/dreams/:id/edit' do
     if logged_in?
       @dream = Dream.find_by_id(params[:id])
-      @categories = current_user.categories.uniq
+      @categories = current_user.categories.uniq.sort_by { |category| category.name }
       erb :'dreams/edit'
     else
       redirect '/login'
