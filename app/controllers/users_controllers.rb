@@ -39,7 +39,11 @@ class UsersController < ApplicationController
   end
   
   get '/home' do 
-    erb :'users/home'
+    if logged_in?
+      erb :'users/home'
+    else 
+      redirect '/'
+    end 
   end
   
   get '/logout' do
@@ -48,7 +52,7 @@ class UsersController < ApplicationController
       flash[:message] = "*You have been logged out*"
       redirect '/'
     else
-      redirect '/home'
+      redirect '/'
     end
   end
   
